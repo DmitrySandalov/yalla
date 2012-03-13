@@ -44,23 +44,8 @@ public class Yalla extends Activity {
 			.show();
 	}
 	
-	private void exitOptionsDialog() {			
-		new AlertDialog.Builder(this)
-			.setTitle(R.string.app_exit)
-			.setMessage(R.string.app_exit_message)
-			.setNegativeButton(R.string.str_no,
-				new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialoginterface, int i)	{}
-				}
-			)
-			.setPositiveButton(R.string.str_ok,
-					new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialoginterface, int i) {
-							finish();
-						}
-					}
-			)
-			.show();
+	private void exitOptionsDialog() {
+		finish();
 	}
 
 	/** Called when the activity is first created. */

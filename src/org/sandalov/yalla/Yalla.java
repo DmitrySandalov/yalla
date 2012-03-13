@@ -8,12 +8,12 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class Yalla extends Activity {
     @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(0, 0, 0, R.string.app_about);
-		menu.add(0, 1, 1, R.string.str_exit);
+		menu.add(0, 0, 0, R.string.app_about);		
 		return super.onCreateOptionsMenu(menu);
 	}
 
@@ -24,9 +24,6 @@ public class Yalla extends Activity {
 		{
 			case 0:
 				openOptionsDialog();
-				break;
-			case 1:
-				exitOptionsDialog();
 				break;
 		}
 		return true;
@@ -43,10 +40,18 @@ public class Yalla extends Activity {
 			)
 			.show();
 	}
-	
-	private void exitOptionsDialog() {
-		finish();
-	}
+
+	public void placeholderDialog(View view) {
+		new AlertDialog.Builder(this)
+			.setTitle(R.string.placeholder_title)
+			.setMessage(R.string.placeholder_message)
+			.setPositiveButton(R.string.str_ok,
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialoginterface, int i)	{}
+				}
+			)
+			.show();
+	}	
 
 	/** Called when the activity is first created. */
     @Override

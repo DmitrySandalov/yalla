@@ -14,7 +14,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -76,12 +75,5 @@ public class YallaLoad extends Activity {
       setContentView(R.layout.yallaload);
       openFile();
       nextWord();      
-      Button exit = (Button) findViewById(R.id.btnClick2);
-      exit.setOnClickListener(new View.OnClickListener() {
-         public void onClick(View arg0) {
-         setResult(RESULT_OK);
-         finish();
-         }
-      });
    }
 }

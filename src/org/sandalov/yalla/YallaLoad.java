@@ -15,9 +15,12 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class YallaLoad extends Activity {
+	ArrayList<String> wordsInFile = new ArrayList<String>();
+	   
 	public void placeholderDialogCustomText(String text) {
 		new AlertDialog.Builder(this)
 			.setTitle(R.string.placeholder_title)
@@ -30,21 +33,18 @@ public class YallaLoad extends Activity {
 			.show();
 	}
 	
-	public void openFile(View view) {		
+	public void openFile() {		
 		try{
 			   File f = new File(Environment.getExternalStorageDirectory()+"/yalla/Dictionary.dic");
 			   FileInputStream fileIS = new FileInputStream(f);
 			   BufferedReader buf = new BufferedReader(new InputStreamReader(fileIS));
 			   String readString = new String();
-			   ArrayList<String> wordsInFile = new ArrayList<String>();
 			   while((readString = buf.readLine())!= null){				   
 				   wordsInFile.add(readString);
 			   }
 //			   for (int i=0; i<wordsInFile.size(); i++) {
 //				   Log.d("yalla", wordsInFile.get(i));
 //			   }
-			   int randomNum = (int) Math.ceil(Math.random() * wordsInFile.size()-1);
-			   placeholderDialogCustomText(wordsInFile.get(randomNum));
 			} catch (FileNotFoundException e) {
 			   e.printStackTrace();
 			} catch (IOException e){
@@ -52,12 +52,27 @@ public class YallaLoad extends Activity {
 			}
 	}
 	
+
+	public void changeFirstWord() {
+		TextView tv = (TextView) findViewById(R.id.textView1);
+		int randomNum = (int) Math.ceil(Math.random() * wordsInFile.size()-1);
+		tv.setText(wordsInFile.get(randomNum));
+	}
+	
+	public void changeFirstWord(View view) {
+		changeFirstWord();
+	}
+	
    public void onCreate(Bundle icicle)
    {
       super.onCreate(icicle);
       setContentView(R.layout.yallaload);
-      Button b = (Button) findViewById(R.id.btnClick2);
-      b.setOnClickListener(new View.OnClickListener() {
+
+      openFile();
+      changeFirstWord();
+      
+      Button exit = (Button) findViewById(R.id.btnClick2);
+      exit.setOnClickListener(new View.OnClickListener() {
          public void onClick(View arg0) {
          setResult(RESULT_OK);
          finish();

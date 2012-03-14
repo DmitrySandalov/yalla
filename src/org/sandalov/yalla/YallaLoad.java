@@ -53,24 +53,29 @@ public class YallaLoad extends Activity {
 	}
 	
 
-	public void changeFirstWord() {
+	public void nextWord() {
 		TextView tv = (TextView) findViewById(R.id.textView1);
 		int randomNum = (int) Math.ceil(Math.random() * wordsInFile.size()-1);
 		tv.setText(wordsInFile.get(randomNum));
+		TextView tv2 = (TextView) findViewById(R.id.textView2);
+		tv2.setText("--==[Tap to translate]==--");
 	}
 	
-	public void changeFirstWord(View view) {
-		changeFirstWord();
+	public void nextWord(View view) {
+		nextWord();
 	}
+	
+	public void secondWordClick(View view) {
+		TextView tv2 = (TextView) findViewById(R.id.textView2);
+		tv2.setText("Translated!");
+	}	
 	
    public void onCreate(Bundle icicle)
    {
       super.onCreate(icicle);
       setContentView(R.layout.yallaload);
-
       openFile();
-      changeFirstWord();
-      
+      nextWord();      
       Button exit = (Button) findViewById(R.id.btnClick2);
       exit.setOnClickListener(new View.OnClickListener() {
          public void onClick(View arg0) {

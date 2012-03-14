@@ -3,12 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
-    
-    <TextView
-           android:layout_width="fill_parent"
-           android:layout_height="wrap_content"
-           android:text="You are in the first Screen" />
-    
+       
     <Button
         android:id="@+id/button1"
         android:layout_width="fill_parent"
@@ -22,7 +17,6 @@
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:onClick="openFile"
         android:text="@string/mode_load" />
-
+    
 </LinearLayout>

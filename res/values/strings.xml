@@ -9,5 +9,7 @@
 	<string name="mode_load">Load vocabulary</string>
 	<string name="placeholder_title">Placeholder</string>
 	<string name="placeholder_message">This is a standard placeholder</string>
+	<string name="close">Close</string>
+	<string name="next">Next</string>
 
 </resources>
